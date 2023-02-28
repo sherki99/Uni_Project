@@ -1,0 +1,132 @@
+   this.speedButton = new JButton("Speed");
+        this.speedButton.setBounds(0, 600, 100, 30);
+        this.speedButton.addActionListener(this);
+        this.add(this.speedButton);
+
+
+        this.carImageOne = new ImageIcon(this.getClass().getResource("Images/RedCar/R1.png"));
+        this.imageLabel = new JLabel(this.carImageOne);
+        this.imageLabel.setBounds(20, 500, 100, 100); // racing arena size is 850 x 650
+        this.add(imageLabel);
+
+
+
+
+
+        if (e.getSource() == this.timer) {
+            this.repaint(); // change with time
+        }
+
+
+        if (e.getSource() == this.speedButton) {
+            this.handleButtonClick();
+        }
+
+
+
+
+    private void handleButtonClick() {
+        int x = this.imageLabel.getLocation().x;
+        int y = this.imageLabel.getLocation().y;
+
+        this.movementStep = +2;
+
+
+        y += this.movementStep;
+        this.imageLabel.setLocation(x, y);
+
+
+
+    }
+
+    private void handleImageIconLocation(Graphics g) {
+        // if (this.yIcon <= 0) {
+        this.movementStep = 3; // higher the higher is the speed
+
+
+        this.yIcon += this.movementStep;
+        this.carImageOne.paintIcon(this, g, this.xIcon, this.yIcon);
+    }
+
+
+       private void handleTimerTick() {
+            int x = this.imageLabel.getLocation().x;
+            int y = this.imageLabel.getLocation().y;
+            if (y <= -160) {
+                this.movementStep = 2;
+            } else if (y >= 0) {
+                this.movementStep = -2;
+            }
+
+            y += this.movementStep;
+            this.imageLabel.setLocation(x, y);
+        }
+
+
+
+
+
+update car
+
+
+                }   else if (spriteNum == 3) {
+
+                spriteNum = 4;
+                }
+                else if (spriteNum == 5) {
+
+                    spriteNum = 6;
+                }
+                else if (spriteNum == 7) {
+
+                    spriteNum = 8;
+                }
+                else if (spriteNum == 9) {
+
+                    spriteNum = 10;
+                }
+
+
+
+   public void draw(Graphics2D g2)
+    {
+
+        BufferedImage image = null;
+        cur_image = up_1;
+
+        switch (direction) // check the direction
+        {
+            case "up":
+                    image = cur_image;
+                break;
+            case "down" :
+                    image = cur_image;
+                break;
+
+            case "left":
+                if(spriteNum == 1) {
+                    image = up_7;
+                }
+                if(spriteNum == 2) {
+                    // image = up_5;
+                }
+
+                break;
+            case "right" :
+                if(spriteNum == 1) {
+                image = up_11;
+                }
+                if(spriteNum == 2) {
+                    // image = up_5;
+                }
+
+                break;
+
+            default:
+               // throw new IllegalStateException("Unexpected value: " + direction);
+        }
+
+        g2.drawImage(image, x, y, dt.tileSize, dt.tileSize, null); // draw an image on the screen; tilesize is weight and hidth // x,y szie of image
+
+    }
+
