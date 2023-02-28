@@ -17,7 +17,7 @@ public class Main {
         DataPanel dataPanel = new DataPanel();
         window.add(dataPanel);
 
-        window.pack(); // causes this window to be sied to fit the preffered size and layouts of its subcomponents
+        window.pack(); // causes this window to be size to fit the preffered size and layouts of its subcomponents
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         dataPanel.startGameThread();

@@ -46,7 +46,7 @@ public class TrackManager extends Track {
             tile[1].image = ImageIO.read(new FileInputStream("res/track/Soil_Tile.png"));
 
             tile[2] =  new Track();
-            tile[2].image = ImageIO.read(new FileInputStream("Water_Tile.png"));
+            tile[2].image = ImageIO.read(new FileInputStream("res/track/Water_Tile.png"));
         }catch (IOException e) {
             e.printStackTrace();
         }

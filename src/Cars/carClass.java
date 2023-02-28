@@ -22,7 +22,7 @@ public class carClass extends  Entity {
 
 
     public carClass(DataPanel dt, KeyHandler keyH) {
-        connectToServer();
+       // connectToServer();
         this.dt = dt;
         this.keyH = keyH;
 
@@ -102,9 +102,6 @@ public class carClass extends  Entity {
                 if (keyH.upPressed == true)  // if upPressed is true the car is going diritto  // the key input is cathced by keyHandler
                 {
 
-                 //   if
-
-
                     if (speed <= 10) {
                         speed += 1;
                     }
@@ -144,12 +141,6 @@ public class carClass extends  Entity {
 
         }
     }
-
-
-
-
-
-
 
 
     public void draw(Graphics2D g2)
@@ -245,30 +236,12 @@ public class carClass extends  Entity {
 
     }
 
+    public int[] getPosition() {
 
-    // create an inner  class
-    // method that connected to the server
-    private void connectToServer(){
-        try{
-            // this initiate a connection
-            socket = new Socket("localhost", 51734); // socket is equal to new socket but for now I will jsut put in localhost
-            // once the connection
-            DataInputStream in = new DataInputStream(socket.getInputStream());
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            playerID= in.readInt(); //read the first int send from the socket
-            System.out.println("You are player number" + playerID);
-            if(playerID == 1){
-                System.out.println("Waiting for player to connect ...");
-            }
+        int[] Position = {x, y, speed, direction};
+        return Position;
 
-        }catch(IOException ex){
-            System.out.println("error from connecttoserver");
-
-        }
     }
-
-
-
 }
 
 
